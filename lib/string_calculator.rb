@@ -4,6 +4,6 @@
 class StringCalculator
 
   def add(numbers)
-    #code goes here
+    return 0 if numbers.empty?
   end
 end
