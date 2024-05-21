@@ -2,6 +2,7 @@
 require 'pry'
 # Class representing a simple string calculator.
 class StringCalculator
+  MAXIMUM_NUMBER = 1000
 
   def add(numbers)
     return 0 if numbers.empty?
@@ -13,6 +14,8 @@ class StringCalculator
     if negative_numbers.any?
       raise ArgumentError, "Negative numbers not allowed: #{negative_numbers.join(', ')}"
     end
+
+    numbers_array.reject! { |num| num > MAXIMUM_NUMBER }
 
     numbers_array.sum
   end
