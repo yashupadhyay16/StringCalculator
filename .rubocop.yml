@@ -1,0 +1,31 @@
+# .rubocop.yml
+
+# Enable all cops
+AllCops:
+  DisplayCopNames: true
+  SuggestExtensions: false
+  NewCops: disable
+
+# Linting rules
+Layout/ExtraSpacing:
+  Enabled: true
+
+Style/FrozenStringLiteralComment:
+  Enabled: true
+
+# Disable Style/Documentation cop
+Style/Documentation:
+  Enabled: true
+
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*_spec.rb'  
+
+Metrics/AbcSize:
+  Enabled: true
+Metrics/MethodLength:
+  Enabled: true
+Metrics/PerceivedComplexity:
+  Enabled: true
+
+# Add more custom configurations as needed
