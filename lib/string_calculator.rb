@@ -1,17 +1,13 @@
 # frozen_string_literal: true
-
+require 'pry'
 # Class representing a simple string calculator.
 class StringCalculator
 
   def add(numbers)
     return 0 if numbers.empty?
 
-    delimiter = ','
-    if numbers.start_with?("//")
-      delimiter, numbers = numbers[2], numbers.split("\n", 2).last
-    end
-
-    numbers_array = numbers.gsub("\n", delimiter).split(delimiter).map(&:to_i)
+    delimiter, numbers = extract_delimiter(numbers)
+    numbers_array = numbers.split(/#{delimiter}|\n/).map(&:to_i)
     
     negative_numbers = numbers_array.select { |num| num.negative? }
     if negative_numbers.any?
@@ -19,5 +15,18 @@ class StringCalculator
     end
 
     numbers_array.sum
+  end
+
+
+  private
+
+  def extract_delimiter(numbers)
+    delimiter = ','
+    if numbers.start_with?('//')
+      delimiter_line, numbers = numbers.split("\n", 2)
+
+      delimiter = delimiter_line[2..]
+    end
+    [delimiter, numbers]
   end
 end
