@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require './lib/string_calculator'
 
 RSpec.describe StringCalculator do
