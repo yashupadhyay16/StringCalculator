@@ -45,4 +45,22 @@ RSpec.describe StringCalculator do
       end
     end
   end
+
+  describe '#add with negatives and large numbers' do
+    subject(:calculator) { described_class.new }
+
+    context 'with negative numbers' do
+      it 'raises an error' do
+        expect { calculator.add('1,-2,3,-4') }.to raise_error(ArgumentError, 'Negative numbers not allowed: -2, -4')
+      end
+    end
+
+    context 'with negative numbers and custom delimiter' do
+      it 'raises an error' do
+        expect do
+          calculator.add("//;\n1;-2;3;-4")
+        end.to raise_error(ArgumentError, 'Negative numbers not allowed: -2, -4')
+      end
+    end
+  end
 end
