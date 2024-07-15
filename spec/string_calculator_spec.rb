@@ -29,4 +29,14 @@ RSpec.describe StringCalculator do
       end
     end
   end
+
+  describe '#add with new lines' do
+    subject(:calculator) { described_class.new }
+
+    context 'with new lines between numbers' do
+      it 'returns the sum' do
+        expect(calculator.add("1\n2,3")).to eq(6)
+      end
+    end
+  end
 end
