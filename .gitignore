@@ -1,0 +1,26 @@
+# Ignore bundler config
+/.bundle
+
+# Ignore environment-specific files
+/.env
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore any generated files
+/*.gem
+
+# Ignore coverage reports
+/coverage
+
+# Ignore IDE or editor files
+/.vscode
+
+# Ignore RuboCop cache
+/.rubocop-*
+
+# Ignore any other generated files or directories
+/log/*
+/tmp/*
+!/log/.keep
+!/tmp/.keep
